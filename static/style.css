@@ -1,0 +1,8 @@
+#avatar{
+}
+
+.test{
+  background-image: url("spritesheet.png");
+  height: 224px;
+  width: 248px;
+}

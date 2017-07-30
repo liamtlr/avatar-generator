@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AvatarGenerator Test</title>
+  <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="src/avatarGenerator.js"></script>
+  <link rel="stylesheet" href="static/style.css">
+
+
+
+
+<!-- include spec files here... -->
+
+</head>
+
+<body>
+  <img class="test">
+  <img id="avatar"></<img>
+</body>
+</html>
+
+<script>
+var ham = new AvatarGenerator(36, 18, 167, 167, './static/russavatars_top.jpg')
+var random = Math.floor(Math.random() * (15000000 - 0 + 1)) + 0;
+console.log(random, "random")
+var coOrds = ham.getCoordinates(random);
+var ref =  "url('" + ham.spritesheet + "')";
+console.log(coOrds);
+var objPos = coOrds[0] + "px " + coOrds[1] + "px";
+console.log(objPos)
+$(document).ready(function(){
+    $("#avatar").css({
+        "height": ham.avatarHeight,
+        "width": ham.avatarWidth,
+        "background-image": ref,
+        "background-position": objPos
+    });
+});
+</script>
